@@ -1,11 +1,10 @@
 import { ParallaxProvider } from "react-scroll-parallax"
-import style from "./App.module.css"
-import Intro from "../Intro/Intro"
+import Portfolio from "./Portfolio"
 
 export default function App() {
   return (
     <ParallaxProvider>
-      <Intro />
+      <Portfolio />
     </ParallaxProvider>
   )
 }
