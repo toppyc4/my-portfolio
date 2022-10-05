@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import-normalize;
+
+@layer components {
+    .modal {
+        width: clamp(50%, 700px, 90%);
+        height: min(50%, 300px);
+
+        margin: auto;
+        padding: 0 2rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background: #fbbf24
+    }
+    .formBtn {
+        margin: 6px;
+        padding: 10px;
+        border: solid black;
+        border-radius:  6px;
+
+        background-color: #4f46e5;
+    }
+}
+
+@layer base {
+    input, textarea {
+        border: solid black;
+        color: black;
+        border-radius: 6px;
+    }
+}
