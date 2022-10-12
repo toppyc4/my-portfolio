@@ -20,16 +20,19 @@ const Modal2 = ({ showModal }) => {
         <div className='w-full self-start'>
           <form className='mt-2 flex flex-col'>
             <div className='mt-1 flex flex-col'>
+              <label>Message:</label>
+              <textarea
+                maxLength='5000'
+                placeholder=' If nothing, sharing your music will be really apriciated :)'
+              ></textarea>
+            </div>
+            <div className='mt-1 flex flex-col'>
               <label>your Name:</label>
               <input type='text' placeholder=' Toppo Targaryen'></input>
             </div>
             <div className='mt-1 flex flex-col'>
               <label>your Email:</label>
               <input type='email' placeholder=' toppy@toffee.csgo'></input>
-            </div>
-            <div className='mt-1 flex flex-col'>
-              <label>Message:</label>
-              <textarea maxLength='5000'></textarea>
             </div>
             <div className='mt-2 flex justify-end'>
               <button className='formBtn' onClick={() => showModal(false)}>

@@ -78,6 +78,7 @@ export default function Footer() {
           Spotify
         </a>
       </div>
+
       <p className='mt-5 mb-3 text-l text-black font-Fira_Code'>
         Suphawat W. © Copy All Rights Reserve
       </p>
