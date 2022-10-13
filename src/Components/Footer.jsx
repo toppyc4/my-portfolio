@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Modal from "./Modal/Modal"
-import Modal2 from "./Modal/Modal2"
+import Contact from "./Contact"
 
 export default function Footer() {
   // const [modalOpen, setModalOpen] = useState(false)
-  const [showModal, setShowModal] = useState(false)
+  const [showContact, setShowContact] = useState(false)
 
   // const close = () => setModalOpen(false)
   // const open = () => setModalOpen(true)
@@ -41,14 +41,14 @@ export default function Footer() {
       </AnimatePresence> */}
 
       <button
-        className='p-3 text-3xl text-white underline font-Crimson_Text'
+        className='p-3 text-3xl text-white font-Crimson_Text'
         onClick={() => {
-          setShowModal(true)
+          setShowContact(true)
         }}
       >
-        Contact form
+        👉<span className='underline'>Contact form</span>👈
       </button>
-      {showModal && <Modal2 showModal={setShowModal} />}
+      {showContact && <Contact showContact={setShowContact} />}
       {/* <a className='p-5 text-3xl text-white underline font-Crimson_Text'>
         Contact form
       </a> */}

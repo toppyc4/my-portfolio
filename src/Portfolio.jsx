@@ -3,17 +3,16 @@ import Intro from "./Components/Intro"
 import Info from "./Components/Info"
 import Projects from "./Components/Pjs/Projects"
 import Footer from "./Components/Footer"
-import Modal from "./Components/Modal/Modal"
-import Modal2 from "./Components/Modal/Modal2"
+import Test from "./Components/Test"
 
 export default function Portfolio() {
   return (
-    <div>
+    <div className='bg-black'>
+      {/* <Test /> */}
       <Intro />
       <Info />
       <Projects />
       <Footer />
-      {/* <Modal /> */}
     </div>
   )
 }

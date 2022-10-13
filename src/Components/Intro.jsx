@@ -1,58 +1,49 @@
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useState } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 const Intro = () => {
-  const el = useRef()
+  const bgEl = useRef()
+  // const nameEl = useRef()
   const tl = useRef()
+  const [showImg, setShowImg] = useState(false)
 
-  // useEffect(() => {
-  //   const el = imgRef.current
-  //   gsap.fromTo(
-  //     el,
-  //     { scale: 0.5 },
-  //     {
-  //       scale: 1.5,
-  //       scrollTrigger: {
-  //         trigger: el,
-  //         scrub: true,
-  //         marker: true,
-  //       },
-  //     }
-  //   )
-  // }, [])
+  // show my pic when clicking my name
+  const showMe = () => {
+    // gsap.to(".me", {
+    //   opacity: 1,
+    //   width: "100px",
+    //   height: "100px",
+    //   ease: "power3.out",
+    // })
+    setShowImg(true)
+  }
 
-  // useEffect(() => {
-  //   tl.current = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: Intro,
-  //       start: "center bottom",
-  //       start: "top top",
-  //       scrub: true,
-  //       marker: true,
-  //     },
-  //   })
-  //   tl.current.to(
-  //     layer3Ref,
-  //     {
-  //       yPercent: -100,
-  //     },
-  //     0
-  //   )
-  // }, [])
+  const hideMe = () => {
+    gsap.to(".me", {
+      opacity: 0,
+      ease: "power3.out",
+    })
+    setShowImg(false)
+  }
+
+  // gsap.to(nameEl, {
+  //   opacity: 1,
+  //   ease: "power3.out",
+  // })
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       tl.current = gsap
         .timeline({
           scrollTrigger: {
-            trigger: el.current,
+            trigger: bgEl.current,
             start: "center center",
             end: "69% center",
             // pin: ".bg-pic",
             scrub: true,
-            markers: true,
+            // markers: true,
           },
         })
         // .to(".bg-pic", { scale: 0.8 })
@@ -63,14 +54,33 @@ const Intro = () => {
         .to(".layer3", { yPercent: 22 }, 0)
         .to(".layer2", { yPercent: 33 }, 0)
         .to(".layer1", { yPercent: 44 }, 0)
-    }, el)
+    }, bgEl)
     return () => ctx.revert()
   }, [])
 
   return (
-    <div>
-      <section ref={el}>
-        <img src='/pic.svg' className='bg-pic static' alt='bg-pic' />
+    <div className=' overflow-visible'>
+      <a
+        className='absolute text-white text-6xl font-bold top-0 left-0 m-16 z-10 opacity-1 cursor-pointer '
+        onClick={() => {
+          {
+            showImg ? setShowImg(true) : setShowImg(false)
+          }
+        }}
+        // ref={nameEl}
+      >
+        Suphawat W.
+      </a>
+      <section ref={bgEl}>
+        <img src='/pic.svg' className='bg-pic flex' alt='bg-pic' />
+
+        {/*Easter egg */}
+        {showImg && (
+          <img
+            src='/Ellipsed-top.svg'
+            className=' absolute top-[51%] left-[43%]'
+          />
+        )}
         <img
           src='/layers/7.svg'
           className='layer7 absolute top-[-3%] right-[27.2%]'
